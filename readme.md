@@ -56,7 +56,7 @@ However, I do not accept contributions for now, to prevent potential issues with
 
 ### Will this be available in another language?
 
-Readme, FAQ and assignment prompts will be translated to Simplified Chinese in a post-release patch. The paper might be translated too.
+Readme, FAQ, and assignment prompts will be translated to Simplified Chinese in a post-release patch. The paper might be translated too.
 
 Documentation within the source code files will not be translated.
 
