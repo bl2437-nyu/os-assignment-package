@@ -14,7 +14,7 @@ This is a proposed design of a project-based assignment package for the Operatin
 
 ## Requirements
 
-To compile and run code in the assignment package, you need a POSIX-compliant system with `gcc` and `make` installed. It is recommended that students install a Linux virtual machine on their device.
+To compile and run code in the assignment package, you need a POSIX-compliant system with `gcc` and `make` installed. It is recommended that Linux virtual machines are installed on students' computers.
 
 Students are assumed to have taken Data Structures and Computer Architecture, and have basic C programming skills. A C warm-up assignment ("part 0") is provided, and students may self-check their C programming skills and seek online resources if needed.
 
@@ -34,7 +34,7 @@ I'll post it here when it's ready!
 
 ### Does it cover every chapter of the OS course?
 
-Currently, no. It currently covers **processes, synchronization, threads and files**, in this order. It is possible to expand this package to include more chapters.
+Currently, no. It currently covers **processes, synchronization, threads, and files**, in this order. It is possible to expand this package to include more chapters.
 
 ### Any known issues?
 
@@ -59,6 +59,8 @@ However, I do not accept contributions for now, to prevent potential issues with
 Readme, FAQ and assignment prompts will be translated to Simplified Chinese in a post-release patch. The paper might be translated too.
 
 Documentation within the source code files will not be translated.
+
+If you instead meant programming language, I will likely not personally implement a package in another language, but feel free to adapt my idea into whatever language you are teaching with.
 
 ### Where can I find your other work?
 
