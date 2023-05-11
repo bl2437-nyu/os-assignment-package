@@ -6,7 +6,7 @@ This is a proposed design of a project-based assignment package for the Operatin
 
 ## Files included
 
-`srcv4` folder includes all the raw source code that I wrote, with all comments about random things. `srcv4_cleanup` folder contains cleaned-up version of the same code, with deprecated code and useless comments removed. Code for different assignments are all placed in `srcv4/src` or `srcv4_cleanup/src` under different file names, and you will need to either rename the files or modify `makefile` in order to build and run them.
+`srcv3` and `srcv4` folders includes all the raw source code that I wrote, with all comments about random things. `srcv3` is for the warm-up task, and `srcv4` is for everything else, due to the different data structure and library functions needed. `srcv3_cleanup` and `srcv4_cleanup` folders contains cleaned-up version of the same code, with deprecated code and useless comments removed. Code for different assignments are all placed in `srcv*/src` or `srcv*_cleanup/src` under different file names, and you will need to either rename the files or modify `makefile` in order to build and run them.
 
 `steps` folder includes template code for students. These templates are simply the source code with part of the code removed for the students to implement. They also come with example assignment instructions for the students, in each respective folder's `readme.md` file.
 

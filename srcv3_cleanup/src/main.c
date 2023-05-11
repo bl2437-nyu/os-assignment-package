@@ -16,8 +16,6 @@
 #include <debug_utils.h>
 
 int main(){
-    printf("%x",DIFFICULTY_1M);
-    exit(0);
     // seed the random number generator
     srand(time(NULL));
     
@@ -25,111 +23,15 @@ int main(){
     char target[32];
     construct_target(difficulty, &target);
     
+    BitcoinBlock* genesis=malloc(sizeof(BitcoinBlock));
+    initialize_block(genesis, difficulty);
     
-    BitcoinBlockv3* genesis=malloc(sizeof(BitcoinBlockv3));
-    // construct a block
-    initialize_block_v3(genesis, difficulty);
+    get_dummy_genesis_block(genesis);
     
-    // transactions
-    MerkleTreeDataNode* tx=malloc(sizeof(MerkleTreeDataNode)*5);
-    for(int i=0; i<5; i++){
-        get_random_transaction(tx+i);
-        add_data_node_v3(genesis->merkle_tree, tx+i);
-    }
-    
-    update_merkle_root_v3(genesis);
-    
-    
-    // make another block
-    BitcoinBlockv3* block2=malloc(sizeof(BitcoinBlockv3));
-    // construct a block
-    initialize_block_v3(block2, difficulty);
-    
-    // transactions
-    MerkleTreeDataNode* tx2=malloc(sizeof(MerkleTreeDataNode)*5);
-    for(int i=0; i<5; i++){
-        get_random_transaction(tx2+i);
-        add_data_node_v3(block2->merkle_tree, tx2+i);
-    }
-    
-    update_merkle_root_v3(block2);
+    debug_print_header(genesis->header);
     
     
     
-    
-    // attach a block
-    attach_block_v3(genesis, block2);
-    
-    
-    // verify it works
-    char buf[50000];
-    int l=serialize_blockchain_v3(genesis, 50000, buf);
-    if(l==-1){
-        perror(NULL);
-    }else{
-        printf("written %d bytes\n",l);
-    }
-    BitcoinBlockv3* g2=malloc(sizeof(BitcoinBlockv3));
-    initialize_block_v3(g2, difficulty);
-    l=deserialize_blockchain_v3(buf, g2);
-    if(l==-1){
-        perror(NULL);
-    }else{
-        printf("read %d bytes\n",l);
-    }
-    /*int opcode;
-    BitcoinBlockv3* b=genesis;
-    MerkleTreeHashNode* p=b->merkle_tree;
-    
-    while(1){
-        debug_print_header(b->header);
-        printf("prevb: %s\n",b->previous_block==NULL?"-":"yes");
-        printf("nextb: %s\n\n",b->next_block==NULL?"-":"yes");
-        
-        printf("hash : ");
-            debug_print_hex_line(p->hash, 32);
-        printf("left : %s\n", p->left==NULL?"-":"yes");
-        printf("right: %s\n", p->right==NULL?"-":"yes");
-        printf("data : %s\n", p->data==NULL?"-":"yes");
-        printf("0 -break\n");
-        printf("1 -left\n");
-        printf("2 -right\n");
-        printf("3 -data\n");
-        printf("4 -reset to top\n");
-        printf("5 -prev block\n");
-        printf("6 -next block\n");
-        printf("> ");
-        scanf("%d",&opcode);
-        switch(opcode){
-            case 0:
-                exit(0);
-                break;
-            case 1:
-                p=p->left;
-                break;
-            case 2:
-                p=p->right;
-                break;
-            case 3:
-                printf("length: %d\n",p->data->length);
-                debug_print_hex_line(p->data->data, p->data->length);
-                break;
-            case 4:
-                p=genesis->merkle_tree;
-                break;
-            case 5:
-                b=b->previous_block;
-                p=b->merkle_tree;
-                break;
-            case 6:
-                b=b->next_block;
-                p=b->merkle_tree;
-                break;
-        }
-    }
-    */
-    
-    /*
     MerkleTreeDataNode* data1=malloc(sizeof(MerkleTreeDataNode));
     MerkleTreeDataNode* data2=malloc(sizeof(MerkleTreeDataNode));
     MerkleTreeDataNode* data3=malloc(sizeof(MerkleTreeDataNode));
@@ -205,11 +107,11 @@ int main(){
     };
     
     data1->length=204;
-    data1->data=&transaction1;
+    data1->data=transaction1;
     data2->length=134;
-    data2->data=&transaction2;
+    data2->data=transaction2;
     data3->length=134;
-    data3->data=&transaction3;
+    data3->data=transaction3;
     
     MerkleTreeHashNode* node1=malloc(sizeof(MerkleTreeHashNode));
     node1->left=NULL;
@@ -248,7 +150,7 @@ int main(){
     
     debug_print_hex_line(&(block.header.merkle_root), 32);
     // should be:
-    // 6A9CC4EACE6C3F1EF9A5278FB66633CE3973492107F134F60FD551E48C9A948A
+    // D291F07194FB0FC204EA31C91101EDE34E991C67D285C04B815AFEFEE63CF4EA
     
     block.header.version=4;
     memset(&(block.header.previous_block_hash), 0, 32);
@@ -258,7 +160,7 @@ int main(){
     
     for(int i=0; i<2147483647; i++){
         block.header.nonce=i;
-        if(is_good_block(&(block.header), &target)){
+        if(is_good_block(&(block.header), target)){
             printf("Nonce found: %d\n", i);
             break;
         }
@@ -270,7 +172,7 @@ int main(){
     free(node12);
     free(node34);
     free(node1234);
-    */
+    
     return 0;
     
 }

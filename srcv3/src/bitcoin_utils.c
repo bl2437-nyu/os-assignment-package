@@ -122,6 +122,17 @@ void calculate_merkle_root_top_down(MerkleTreeHashNode* node){
 }
 
 
+/*
+TODO for bitcoin and merkle tree structure:
+
+- construct from a list of transactions
+- construct from random transactions
+- add a transaction
+
+- recursively free memory used by a block
+- recursively free memory used by a blockchain?
+*/
+
 // count how many transactions are in a merkle tree
 // assumes tree is valid - specifically, a node with a data node doesn't have
 // children, and a node has a left child before a right child.
@@ -271,6 +282,17 @@ void add_data_node(MerkleTreeHashNode* tree, MerkleTreeDataNode* node){
     n->data=node;
 }
 
+// ###### TEMPORARY
+// Adds an array of data nodes to a tree.
+// Not for production use because not-individually-malloc'd nodes can't be
+// individually (recursively) free'd.
+void construct_merkle_tree(BitcoinBlock* block, int transaction_count, MerkleTreeDataNode* data){
+    // assumes `data` in array
+    // ... might need rework if data is loose (**data??)
+    for(int i=0; i<transaction_count; i++){
+        add_data_node(block->merkle_tree, data+i);
+    }
+}
 
 // Frees a data node, and if it has data, free that memory too.
 // params

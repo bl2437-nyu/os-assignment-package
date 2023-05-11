@@ -1,15 +1,43 @@
-# 00-C Warmup: Assignment Prompt
+# 00-Warmup
 
-## Task Description
+A Bitcoin block contains mainly two parts: a header, and a list of transactions.
 
-Try to complete the following steps.
+The header contains the following information about a block:
+- the version of the Bitcoin protocol,
+- the previous block's header hash,
+- the Merkle root of the transactions,
+- the time when the block was created,
+- the difficulty value used for mining the block,
+- a nonce, which is an arbitrary number.
 
-### 1. Compile and run the code.
-Compile and run the template code as it is.
+The Merkle root is a hash obtained from the transactions in the block. Conceptually a Merkle tree is a binary tree, with bottom layer nodes representing hashes of transactions, and every other node representing a hash that combines the hashes of its children. The Merkle root is the hash value at the root.
 
-You should be able to compile the code with `make build` and run it with `./bin/main.bin`.
+For a Merkle tree with 3 transactions, here's a graphical representation of the tree:
 
-If it runs successfully, it should print the header for the Genesis block of Bitcoin. It should look like this:
+```
+          a
+         / \
+        /   \
+       /     \
+      /       \
+     b         c
+    / \       /
+   /   \     /
+  d     e   f
+  |     |   |
+  1     2   3
+```
+Here, 1, 2, and 3 are transactions, d, e, f represent hashes of the transactions, and a, b and c represent hashes that come from their respective child/children.
+
+For this exercise, the Merkle tree is represented by a literal binary tree. You may check out `bitcoin_utils.h` to find definitions of relevant structs.
+
+The process of "mining" Bitcoin involves a brute force process, and the goal is to find a hash for the header that is smaller than the target value (usually explained to people as "having a certain number of leading zeros"). The "nonce" value is incremented on each loop, which changes the hash of the block header.
+
+## Task description
+
+First, compile and run the code template as is. The template will create a Bitcoin block with the same data as the real Bitcoin's genesis block, and print the header in a human-readable format.
+
+The printed data should look something like this:
 
 ```
 ====Debug print header start====
@@ -22,14 +50,9 @@ nonce:         2083236893
 ====Debug print header end====
 ```
 
-### 2. Edit the code to complete the following
-- Create another BitcoinBlock, by declaring a pointer and allocating memory for it using `malloc()`.\
-  While it is still possible to simply create a BitcoinBlock variable, it is also useful to learn to work with pointers and memory management.
-- Use `initialize_block` to initialize the block, and use `randomize_block_transactions` to give the block a random set of transactions.\
-  The former is found in `bitcoin_utils.c`, the latter is found in `data_utils.c`. You can find the source code and documentation about them in their respective files.
-- Write a loop to "mine the block". This is done by brute force: give the block a `nonce` value, check if the hash satisfies a condition, and if it doesn't, try again with a different value. Print a valid nonce that it finds.\
-  Use `is_good_block` from `bitcoin_utils.c` to perform the check.
-- Finally, remember to free the memory you allocated with `malloc` by calling `free`.
+After that, modify the code to complete the following tasks:
+- Construct a Merkle tree, using the transaction data provided in the template. The data nodes and one hash node has been created for you, and you need to create the rest of the hash nodes and set their relevant pointers.
+- Uncomment the block comment near the bottom of the code, and set `my_blcok->merkle_tree` to the root node of your Merkle tree.
+- Write a brute force loop to find a valid nonce for the block.
 
-### 3. Re-compile and re-run your code.
-See if it runs properly. Check for any errors and bugs.
+It should take a few seconds for your computer to find a valid nonce. If it feels too fast or too slow, you may change the difficulty value near the top of the `main` function, in the `difficulty` variable. The `DIFFICULTY_1M` macro makes it take on average 1 million attempts to find a valid nonce; and a few other macros are defined in `bitcoin_utils.h`.
