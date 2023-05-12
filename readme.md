@@ -4,6 +4,8 @@ This is my undergraduate senior project.
 
 This is a proposed design of a project-based assignment package for the Operating Systems course, where students will implement a Bitcoin mining simulator in C, making use of concepts from the course material.
 
+Read the paper here: [English PDF](/docs/paper.pdf)
+
 ## Files included
 
 `srcv3` and `srcv4` folders includes all the raw source code that I wrote, with all comments about random things. `srcv3` is for the warm-up task, and `srcv4` is for everything else, due to the different data structure and library functions needed. `srcv3_cleanup` and `srcv4_cleanup` folders contains cleaned-up version of the same code, with deprecated code and useless comments removed. Code for different assignments are all placed in `srcv*/src` or `srcv*_cleanup/src` under different file names, and you will need to either rename the files or modify `makefile` in order to build and run them.
@@ -30,7 +32,7 @@ I am Boyan Li, an undergraduate computer science student about to graduate from 
 
 ### Can I read your senior paper?
 
-I'll post it here when it's ready!
+You can read it [here](/docs/paper.pdf)!
 
 ### Does it cover every chapter of the OS course?
 
@@ -60,8 +62,10 @@ Readme, FAQ, and assignment prompts will be translated to Simplified Chinese in 
 
 Documentation within the source code files will not be translated.
 
-If you instead meant programming language, I will likely not personally implement a package in another language, but feel free to adapt my idea into whatever language you are teaching with.
+### Will this be available in another programming language?
+
+I will likely not personally implement a package in another language, but feel free to adapt my idea into whatever language you are teaching with.
 
 ### Where can I find your other work?
 
-Unfortunately, every other thing I do on the internet is made using my nickname, which I do not feel comfortable linking to.
+Unfortunately, every other thing I do on the internet is made with my online nickname, which I do not feel comfortable linking to.
