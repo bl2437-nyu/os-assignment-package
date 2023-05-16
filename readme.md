@@ -4,7 +4,7 @@ This is my undergraduate senior project.
 
 This is a proposed design of a project-based assignment package for the Operating Systems course, where students will implement a Bitcoin mining simulator in C, making use of concepts from the course material.
 
-Read the paper here: [English PDF](/docs/paper.pdf)
+Read the paper here: [English PDF](/docs/paper.pdf), [English Markdown](/docs/paper.md)
 
 ## Files included
 

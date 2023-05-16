@@ -298,6 +298,7 @@ This warm-up section serves many purposes:
 #### Assignment breakdown
 
 ![](./img/merkle_tree.png)
+
 *Fig. 1: A graphical representation of a 3-transaction Merkle tree,
 which students are instructed to construct as a part of this
 assignment.*
@@ -380,6 +381,7 @@ the assignment instructions.
 #### Assignment breakdown
 
 ![](./img/child_processes.png)
+
 *Fig. 2: A graphical representation of the processes in part 1 and in
 part 2, question 1*
 
@@ -522,6 +524,7 @@ APIs such as `pthread_mutex`.
 #### Assignment breakdown
 
 ![](./img/thread.png)
+
 *Fig. 3: A graphical representation of the processes and threads in
 part 3.*
 
