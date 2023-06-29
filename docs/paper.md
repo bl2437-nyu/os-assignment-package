@@ -523,7 +523,7 @@ APIs such as `pthread_mutex`.
 
 #### Assignment breakdown
 
-![](./img/thread.png)
+![](./img/threads.png)
 
 *Fig. 3: A graphical representation of the processes and threads in
 part 3.*
