@@ -24,11 +24,9 @@ To run programs in the `tools` folder, you need Python 3.
 
 ## Quick FAQ
 
-I'll update with more information at a later date. For now, here are some questions you might have:
-
 ### Who are you? What is this?
 
-I am Boyan Li, an undergraduate computer science student about to graduate from NYU Shanghai (at the time of writing). This is my senior project.
+I am Boyan Li. I graduated from NYU Shanghai with a Bachelor's degree in Computer Science. This is my senior project.
 
 ### Can I read your senior paper?
 
@@ -42,30 +40,26 @@ Currently, no. It currently covers **processes, synchronization, threads, and fi
 
 The code currently contains minor bugs that affect the correctness of the blocks and blockchains it produces. However most, if not all, code should still hopefully be operational, and would not affect the parts where OS functionalities are made use of.
 
-The bugs will likely be addressed in a post-release patch.
-
-There are also known limitations in terms of how it perform in-class; these will be addressed in the paper as well as a future version of this FAQ.
+There are also known limitations in terms of how it perform in-class; these are addressed in the paper.
 
 ### Can I use your work?
 
-For now, no. I will choose a suitable license in the near future, if my grades go well.
+For internal use in a higher education institution, you may freely use this assignment package without attribution. It is recommended that you do not include attribution in any material distributed to your students to make it harder for them to find here, but keep a reference for yourself in case you need help.
+
+For every other use, including educational use outside of a higher education institution (eg, on a MOOC platform) and academic or scientific studies, please include an attribution and URL to this repository.
 
 ### I have things to ask/report, or I want to contribute.
 
-If you have anything you'd like to say, feel free to add an issue.
-
-However, I do not accept contributions for now, to prevent potential issues with grading of my senior project. I will review pull requests some time in the future.
+Feel free to add an issue or pull request. I might not be maintaining this repo, but if I happened to see something coming in my emails, I'll try my best to respond.
 
 ### Will this be available in another language?
 
-Readme, FAQ, and assignment prompts will be translated to Simplified Chinese in a post-release patch. The paper might be translated too.
+No, I am no longer maintaining this project.
 
-Documentation within the source code files will not be translated.
+Feel free to translate anything to your language.
 
-### Will this be available in another programming language?
-
-I will likely not personally implement a package in another language, but feel free to adapt my idea into whatever language you are teaching with.
+You may also consider porting the assignment package to another programming language to suit your needs. Be aware of differences between languages and operating systems - this assignment package is made for POSIX C.
 
 ### Where can I find your other work?
 
-Unfortunately, every other thing I do on the internet is made with my online nickname, which I do not feel comfortable linking to.
+Unfortunately, every other thing I do on the internet is made with my online nickname, which I do not feel comfortable linking to. If you are a recruiter etc that would like to see my personal GitHub account, please leave me a message through the contact information you obtained from my resume.
